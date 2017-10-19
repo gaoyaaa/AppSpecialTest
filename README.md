@@ -1,5 +1,5 @@
 ## AppSpecialTest  
-本目录下的脚本，皆为Android APP的专项测试代码，样例皆以电视猫为参考。
+`本目录下的脚本，皆为Android APP的专项测试代码。`
 
 #### 1. <Android APP 启动时间监控>相关知识点:  
 * ##### 获取 package/activity 方式：
