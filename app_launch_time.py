@@ -50,7 +50,7 @@ class Control(object):
             self.count -= 1
 
     def data_save(self):
-        csv_file = open("E:\\LaunchTime.csv", "w")
+        csv_file = open("E:\\LaunchTime.csv", "w")              # 数据文件保存在E盘（根据自己电脑修改）
         write_data = csv.writer(csv_file)
         write_data.writerows(self.test_time)
         csv_file.close()
@@ -60,7 +60,7 @@ class Control(object):
         return current_time
 
 if __name__ == '__main__':
-    control = Control(10)
+    control = Control(10)               # 执行10次测试（根据自己需求而修改数值）
     control.many_times_test()
     control.data_save()
 
