@@ -9,7 +9,7 @@
 * ##### 停止（冷启动） app 应用：
 ```adb shell am force-stop com.xxx.xxx```  
 * ##### 停止（热启动） app 应用：
-```adb shell input keyevent 3     # keyevent 3为“返回键”```  
+```adb shell input keyevent 3     # keyevent 3为“按键Home”，等同于：adb shell input keyevent "KEYCODE_HOME"```  
   
 #### 2. <Android App 内存监控>相关知识点：
 * ##### xxx
