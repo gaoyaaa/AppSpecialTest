@@ -17,8 +17,8 @@ class AppTest(object):
         self.log_content = os.popen(launch_cmd)
 
     def quit(self):
-        quit_cmd = "adb shell am force-stop com.moretv.android/.testActivity"
-        # quit_cmd = "adb shell input keyevent 'KEYCODE_HOME'"
+        quit_cmd = "adb shell am force-stop com.moretv.android/.testActivity"       # 停止APP，作为冷启动APP测试用。
+        # quit_cmd = "adb shell input keyevent 'KEYCODE_HOME'"                      # 退出APP，作为热启动APP测试用。
         os.popen(quit_cmd)
 
     def get_launch_time(self):
@@ -37,8 +37,10 @@ class Control(object):
 
     def single_test(self):
         self.app_test.launch()
+        time.sleep(3)
         consume_time = self.app_test.get_launch_time()
         self.app_test.quit()
+        time.sleep(3)
         current_time = self.get_time()
         self.test_time.append((current_time, consume_time))
 
