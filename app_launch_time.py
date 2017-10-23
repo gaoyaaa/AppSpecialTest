@@ -45,7 +45,7 @@ class Control(object):
         self.test_time.append((current_time, consume_time))
 
     def many_times_test(self):
-        if self.count > 0:
+        while self.count > 0:
             self.single_test()
             self.count -= 1
 
