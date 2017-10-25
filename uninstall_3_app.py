@@ -35,3 +35,4 @@ def uninstall_3_app():
 
 if __name__ == '__main__':
     uninstall_3_app()
+
