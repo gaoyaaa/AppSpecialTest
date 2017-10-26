@@ -1,6 +1,6 @@
 # Author: AdrianZhang
-# Script function: 统计被测APP的启动时间，作为参考。
 # Coding Time: 2017/10/19
+# Script Function: 统计被测APP的启动时间，作为参考。
 
 import time
 import os
