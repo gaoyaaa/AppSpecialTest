@@ -29,7 +29,7 @@ def uninstall_3_app():
                 if "Success" in content:
                     print("{}: {} uninstall {}!".format(device, package, content))
                 else:
-                    print("{}: {} uninstall Fail!")
+                    print("{}: {} uninstall Fail! Details as Follows: {}".format(device, package, content))
             except Exception as msg:
                 print(msg)
 
