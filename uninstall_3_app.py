@@ -1,6 +1,6 @@
 # Author: AdrianZhang
 # Coding Time: 2017/10/25
-# Script function: 一个实现“卸载当前已连接的Android手机中所有第三方包”的脚本。
+# Script Function: 一个实现“卸载当前已连接的Android手机中所有第三方包”的脚本。
 
 import os
 
