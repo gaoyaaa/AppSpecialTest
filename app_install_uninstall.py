@@ -1,6 +1,6 @@
 # Author: AdrianZhang
 # Coding Time: 2017/10/25
-# Script function: 一个实现“Android APK自动安装、卸载”的测试脚本。
+# Script Function: 一个实现“Android APK自动安装、卸载”的测试脚本。
 
 import os
 import time
