@@ -29,7 +29,7 @@ class Uninstall3App(object):
     def uninstall_3_app(self):
         for package in self.package_name:
             try:
-                log_info = os.popen("adb -s {} shell pm uninstall {}".format(self.device_name, package)).read()
+                log_info = os.popen("adb -s {} uninstall {}".format(self.device_name, package)).read()
                 content = log_info.replace("\n", "")
                 if "Success" in content:
                     print("{}: {} uninstall {}!".format(self.device_name, package, content))
