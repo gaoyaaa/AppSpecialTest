@@ -76,7 +76,7 @@ class Control(object):
         for num in range(self.counter-1):
             z_average_time.append(average_time)
 
-        plt.figure(figsize=(25, 10))         # 设置比例：x轴为10， y轴为5
+        plt.figure(figsize=(25, 10))         # 设置图的范围
         plt.plot(y_del_1_app_launch_time, 'b', linewidth=1.5, label='Actual Value')      # y轴，线宽为1.5个点的蓝色线条
         plt.plot(x_del_1_system_time, y_del_1_app_launch_time, 'ro')                      # 'r': 红色; 'o': 圆标记
         plt.plot(z_average_time, 'r', linewidth=1.5, label='Average Value')        # y轴，线宽为1.5个点的红色线条
