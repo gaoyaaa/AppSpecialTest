@@ -1,11 +1,6 @@
 # Author: AdrianZhang
 # Coding Time: 2017/10/27
-# Script Function: App启动耗时统计并自动发送报告的执行脚本。
-#   1. launch_time.py，data_processing.py，send_mail.py，test_main.py必须在同一个目录下；
-#   2. 电脑已配置好Python3.x开发环境，已安装Matplotlib库（安装方法：pip install matplotlib）
-#   3. 本人在自己的环境中，脚本测试通过。（以“mumu模拟器”作为测试机器，“爱奇艺”作为测试app），mumu模拟器设备地址:
-#       (windows): adb connect 127.0.0.1:7555
-#       (Mac)    : adb connect 127.0.0.1:5555
+# Script Function: App启动耗时统计并自动发送报告的主执行脚本。
 
 import os
 import time
