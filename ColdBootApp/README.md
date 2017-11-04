@@ -4,6 +4,6 @@
 2. 测试时，只用修改test_main.py中"main()"下的参数即可；  
 3. 电脑已配置好Python3.x开发环境，已安装Matplotlib库（安装方法：pip install matplotlib）；  
 4. 本人在自己的环境中，脚本测试通过。（以“mumu模拟器”作为测试机器，“爱奇艺”作为测试app）；  
-5. mumu模拟器设备地址:    
+5. mumu模拟器设备地址：  
 (windows): adb connect 127.0.0.1:7555  
 (Mac)    : adb connect 127.0.0.1:5555  
