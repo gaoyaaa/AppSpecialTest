@@ -9,7 +9,9 @@ import matplotlib.pyplot as plt
 
 def connect_device():
     try:
-        log = os.popen("adb kill-server && adb devices").read()
+        # content = os.popen("adb connect 127.0.0.1:7555").read()    # 模拟器测试
+        # print(content)
+        log = os.popen("adb kill-server && adb devices").read()    # 手机设备
         split_log = log.split('\n')
         for each in split_log:
             if '\t' in each:
@@ -18,7 +20,7 @@ def connect_device():
     except Exception as e:
         print(e)
 
-def get_top_data(test_time):
+def get_top_data(test_time, package_name):
     start_time = time.time()
     format_start_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(start_time))
     print("Start Time: {} = {}".format(start_time, format_start_time))
@@ -28,7 +30,7 @@ def get_top_data(test_time):
 
     top_data_list = []
     while start_time <= end_time:
-        top_data = os.popen('adb shell "top -n 1 -d 1 | grep com.snda.wifilocating"').read()
+        top_data = os.popen('adb shell "top -n 1 -d 1 | grep {}"'.format(package_name)).read()
         split_top_data = top_data.strip().split('\n\n')
         for each in split_top_data:
             split_each = each.split()
@@ -112,12 +114,12 @@ if __name__ == '__main__':
     log = connect_device()
     print(log)
     test_time = 60    # 测试时间（单位：秒）
-    top_data_list = get_top_data(test_time)
+    package_name = "com.snda.wifilocating"
+    top_data_list = get_top_data(test_time, package_name)
     format_data = format_data(top_data_list)
     write_csv(format_data)
     csv_path = get_recent_csv_path()
     cpu_value = get_cpu_value(csv_path)
     visualization(cpu_value)
-
 
 
