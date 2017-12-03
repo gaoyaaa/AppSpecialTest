@@ -18,11 +18,11 @@ def connect_device():
     except Exception as e:
         print(e)
 
-def get_top_data():
+def get_top_data(test_time):
     start_time = time.time()
     format_start_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(start_time))
     print("Start Time: {} = {}".format(start_time, format_start_time))
-    end_time = start_time + float(60)
+    end_time = start_time + float(test_time)
     format_end_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(end_time))
     print("End Time: {} = {}".format(end_time, format_end_time))
 
@@ -111,7 +111,8 @@ def visualization(cpu_value):
 if __name__ == '__main__':
     log = connect_device()
     print(log)
-    top_data_list = get_top_data()
+    test_time = 60    # 测试时间（单位：秒）
+    top_data_list = get_top_data(test_time)
     format_data = format_data(top_data_list)
     write_csv(format_data)
     csv_path = get_recent_csv_path()
