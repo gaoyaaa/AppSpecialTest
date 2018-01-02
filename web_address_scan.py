@@ -1,6 +1,21 @@
 # Author: AdrianZhang
 # Coding Time: 2018/01/02
 # Script Function: A script for scan web address status code.
+#
+# 设置自动运行方法：
+# <linux系统>：
+# 1. 修改时区:
+#    sudo cp /usr/share/zoneinfo/Asia/Shanghai/etc/localtime
+# 2. 设置NTP服务器：
+#    sudo ntpdate cn.pool.ntp.org
+# 3. 检查时间是否正确：
+#    date
+# 4. 设定每天0:00，用Python执行 /opt/web_address_scan.py 文件，编辑定时任务：
+#    #crontab -e
+#    0 0 * * * python /opt/web_address_scan.py
+# 5. 保存后退出，执行：
+#    /etc/init.d/cron restart
+# 重启服务完成后，即可使用啦。
 
 import csv
 import time
