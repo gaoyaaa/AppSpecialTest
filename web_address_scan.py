@@ -37,12 +37,18 @@ def write_status_code(web_address, headers):
     result_file_name = 'result_'+web_address_file
     with open(result_file_name, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(['Web Address', 'Test Time', 'Status Code'])
+        writer.writerow(['Web Address', 'Test Time', 'Status Code', 'Result'])
         for item in web_address:
             try:
                 status_code_value = requests.get(item, headers=headers, timeout=30).status_code
-                writer.writerow([item, time.strftime("%Y/%m/%d %H:%M:%S", time.localtime()), status_code_value])
-
+                if status_code_value == 200:
+                    test_result = 'Pass'
+                else:
+                    test_result = 'Fail'
+                writer.writerow([item,
+                                 time.strftime("%Y/%m/%d %H:%M:%S", time.localtime()),
+                                 status_code_value,
+                                 test_result])
             except Exception as e:
                 print(e)
     return result_file_name
@@ -55,7 +61,7 @@ def send_mail(result_file_name, subject, smtp_server, sender, receiver, username
         <html>
           <body>
             <p style="font-size:20px">{}：</p>
-            <p style="font-size:16px;color:red">测试结果已生成，请查收邮件附件！</p>
+            <p style="font-size:16px;color:red">测试已结束，请下载邮件附件并查看测试结果！</p>
           </body>
         </html>""".format(subject), "html", "utf-8")
     msg_root.attach(msg_text)
@@ -89,5 +95,4 @@ if __name__ == '__main__':
     username = "sender@qq.com"
     password = "********"
     send_mail(result_file_name, subject, smtp_server, sender, receiver, username, password)
-
 
